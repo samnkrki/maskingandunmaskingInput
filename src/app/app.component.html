@@ -54,10 +54,20 @@
     [textMask]="priceMask"
     appNumeric
   />
+  <input
+    type="text"
+    prefix="$ "
+    mask="A{100}"
+    [patterns]="customPatterns"
+    formControlName="maskedInput2"
+  />
 </form>
 
 <pre>
   {{ formGroup.value | json }}
 </pre>
 {{ myModel }}
+
+<button (click)="submit()"></button>
+
 <router-outlet></router-outlet>

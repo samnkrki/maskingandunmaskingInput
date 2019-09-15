@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public formControlInput: FormControl = new FormControl();
   public mask: Array<string | RegExp>;
   formGroup: FormGroup;
-
+  public customPatterns = { "0": { pattern: new RegExp("[0-9]") } };
   priceMask = Object.freeze({
     mask: [
       "(",
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
       /\d/,
       /\d/,
     ];
-    this.myModel = "123456789";
+
     this.modelWithValue = "5554441234";
     this.formControlInput.setValue("5555551234");
   }
@@ -61,6 +61,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
       maskedInput: "",
+      maskedInput2: "",
     });
+  }
+  submit() {
+    console.log(this.formGroup.value);
   }
 }
